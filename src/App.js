@@ -1,4 +1,4 @@
-import Side from "./Side";
+import Side from './components/Side'
 
 function App() {
   return (
