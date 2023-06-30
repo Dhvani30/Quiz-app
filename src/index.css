@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities; 
 
-
-
 @layer components {
     .bar-icon{
       @apply relative flex items-center justify-center 
