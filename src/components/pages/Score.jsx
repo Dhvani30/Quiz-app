@@ -1,11 +1,11 @@
 import React from "react";
-const Setting = () => {
+const Score = () => {
     return (
         <div>
-            <h1>Settings</h1>
+            <h1>Score</h1>
         </div>
     )
 }
 
 
-export default Setting
+export default Score
