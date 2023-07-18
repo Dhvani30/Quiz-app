@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import "../pages/play.css"
 
-const Play = () => {
+const Demo = () => {
   const [questions, setQuestions] = useState([]);
-  const [correctcount ,setCount]=useState(0);
+  const [correctcount,setCount]=useState(0);
 
   const fetchQuestionsForCategory1 = async () => {
     try {
@@ -123,11 +122,10 @@ const Play = () => {
   
   return (
     <div>
-    
-      <button className="button"  onClick={fetchQuestionsForCategory1}>General Knowledge</button>
-      <button className="button" onClick={fetchQuestionsForCategory2}>Mythology</button>
-      <button className="button" onClick={fetchQuestionsForCategory3}>Anime & Manga</button>
-      <button className="button" onClick={fetchQuestionsForCategory4}>Politics</button>
+      <button onClick={fetchQuestionsForCategory1}>General Knowledge</button>
+      <button onClick={fetchQuestionsForCategory2}>Mythology</button>
+      <button onClick={fetchQuestionsForCategory3}>Anime & Manga</button>
+      <button onClick={fetchQuestionsForCategory4}>Politics</button>
 
       {/* Render the questions */}
       {questions.map((question, index) => (
@@ -187,5 +185,5 @@ const Play = () => {
   );
 };
 
-export default Play;
+export default Demo;
 

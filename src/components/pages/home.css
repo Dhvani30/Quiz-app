@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .bar-icon {
+    @apply relative flex items-center justify-center h-12 w-12 mt-2 mb-2 mx-auto bg-gray-400 hover:bg-fuchsia-500 bg-indigo-400 text-white hover:text-white hover:rounded-xl rounded-3xl transition-all duration-200 ease-linear cursor-pointer shadow-lg;
+  }
+
+  .bar-icon:hover .sidebar-tooltip {
+    @apply scale-100;
+  }
+
+  .sidebar-tooltip {
+    @apply absolute w-auto p-2 m-2 min-w-max left-14 rounded-md shadow-md text-white text-xs font-bold transition-all duration-100 scale-0 origin-left;
+  }
+}
+
+body {
+  padding-left: 63px;
+  color: white;
+  /* background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4), url("./components/pages/Image.jpg")); */
+  background-size: cover;
+}
+
+.home .title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.home .logo-holder {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.home .logo {
+  width: 100px;
+  height: 100px;
+  border: solid white 2px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 3rem;
+}
+
+.home .input {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 0.5rem;
+  display: block;
+  width: 100%;
+  margin-top: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  align-content: center;
+  width: 300px;
+}
+
+.home .input::placeholder {
+  color: #9c9c9c;
+}
+
+.home .sign-in-button {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  align-content: center;
+  display: flex;
+  padding: 0.5rem;
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 85px;
+}

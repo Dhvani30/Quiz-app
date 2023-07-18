@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-
+import React, { useState } from "react";
+import { Link, useNavigate } from 'react-router-dom';
+import "../pages/home.css"
 
 const Home = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
@@ -14,42 +15,46 @@ const Home = () => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Perform login/authentication logic with username and password
-    // You can use the entered username and password in this function
+  const handleButtonClick = () => {
+    if (username && password) {
+      // Both fields are filled, navigate to '/play'
+      navigate("/play");
+    } else {
+      // At least one field is empty, display a prompt
+      window.alert("Please fill in all fields.");
+    }
   };
 
   return (
-    <div className="home">
-      <h1>Welcome to the Quiz App!</h1>
-      <p>Test your knowledge with our fun quizzes.</p>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={handleUsernameChange}
-          />
+    // <div className="flex justify-center items-center h-screen">
+      <div className="home">
+        <div className="image-holder">
+          <div className="image"></div>
         </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
+        <div className="title">Quizapp.in</div>
+        <input
+          type="text"
+          className="input"
+          placeholder="Username"
+          value={username}
+          onChange={handleUsernameChange}
+        />
+        <input
+          type="password"
+          className="input"
+          placeholder="Password"
+          value={password}
+          onChange={handlePasswordChange}
+        />
+
+        
+
+        <div className="sign-in-button flex justify-center">
+          <button onClick={handleButtonClick}>Sign in</button>
         </div>
-        <button type="submit">Login</button>
-      </form>
-      <Link to="/play">Start Quiz</Link>
-    </div>
+      </div>
+    // </div>
   );
 };
-
-
 
 export default Home;

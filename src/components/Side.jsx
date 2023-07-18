@@ -36,7 +36,7 @@ const Side = ({ children }) => {
 
     return (
         <div className={`fixed top-0 left-0 h-screen ${isOpen ? "w-36" : "w-16"} 
-              flex flex-col bg-gray-900 text-white shadow-lg bg-primary text-secondary 
+              flex flex-col bg-gray 900 text-white shadow-lg bg-primary text-secondary 
               transition-width duration-300`}
         >
             <div className="container">
