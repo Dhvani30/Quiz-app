@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .bar-icon {
+    @apply relative flex items-center justify-center h-12 w-12 mt-2 mb-2 mx-auto bg-gray-400 hover:bg-fuchsia-500 bg-indigo-400 text-white hover:text-white hover:rounded-xl rounded-3xl transition-all duration-200 ease-linear cursor-pointer shadow-lg;
+  }
+
+  .bar-icon:hover .sidebar-tooltip {
+    @apply scale-100;
+  }
+
+  .sidebar-tooltip {
+    @apply absolute w-auto p-2 m-2 min-w-max left-14 rounded-md shadow-md text-white text-xs font-bold transition-all duration-100 scale-0 origin-left;
+  }
+}
+
+body {
+  padding-left: 63px;
+  color: white;
+  background-size: cover;
+}
+
+/* Styles for the home page */
+.home {
+.title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.logo {
+  width: 220px;
+  /* height: 100px; */
+  /* border: solid white 2px; */
+  /* border-radius: 50%; */
+  display: grid;
+  place-items: center;
+  /* margin-top: 00px; */
+  margin-left: 250px;
+  /* font-size: 3rem; */
+}
+
+.input {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 0.5rem;
+  display: block;
+  width: 100%;
+  margin-top: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  align-content: center;
+  width: 300px;
+}
+
+.input::placeholder {
+  color: #9c9c9c;
+}
+
+.sign-in-button {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  align-content: center;
+  display: flex;
+  padding: 0.5rem;
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70px;
+}
+}
+
+
+.play{
+
+  
+.button_gk,.button_myth, .button_anime, .button_poly, .check_score {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  display: block;
+  width: 100%;
+  margin-top: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  align-content: center;
+  width: 300px;
+  /* Add the following lines for the hover effect */
+  transition: background-color 0.3s ease-in-out; /* Add a smooth transition */
+}
+
+.button_gk:hover {
+  background: linear-gradient(45deg, #7700FF, #00FFFF); /* Change this to the desired hover color */
+}
+.button_myth:hover {
+  background: linear-gradient(45deg, #FF8C00, #FF00FF);
+}
+.button_anime:hover {
+  background: linear-gradient(45deg, #00FFFF, #FF1493);
+}
+.button_poly:hover {
+  background: linear-gradient(45deg, #0000FF, #FF0000);
+}
+
+}
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  padding-left: 100px;
+}

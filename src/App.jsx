@@ -1,14 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./components/pages/Home";
+import Home from "./components/pages/home/Home";
 import Side from "./components/Side";
-import Setting from "./components/pages/Setting";
-import Play from "./components/pages/Play";
-import Score from "./components/pages/Score";
+import Setting from "./components/pages/setting/Setting"
+import Play from "./components/pages/play/Play"
+import Score from "./components/pages/score/Score"
 import Design from "./Design";
-import Image from "./components/pages/Image.jpg"
-import Logo from "./components/pages/Logo";
-import logo from "./components/pages/logo.jpg"
+import Image from "./components/pages/3673457.jpg";
+
 
 
 const App = () => {
@@ -30,13 +29,13 @@ const App = () => {
               <Route path="/play" element={<Play />} />
               <Route path="/settings" element={<Setting />} />
               <Route path="/score" element={<Score />} />
-              <Route path="/logo" element={<Logo/>}/>
+              
             </Routes>
           </div>
         </Router>
         <Design />
       </div>
-      <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-20"></div> 
+      {/* <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-20"></div>  */}
     </div>
   );
 };

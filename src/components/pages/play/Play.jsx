@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../pages/play.css"
+import "./play.css"
 
 const Play = () => {
   const [questions, setQuestions] = useState([]);
@@ -122,12 +122,14 @@ const Play = () => {
   }
   
   return (
-    <div>
+    <div className="play">
+     
+
+      <button className="button_gk"  onClick={fetchQuestionsForCategory1}>General Knowledge</button>
+      <button className="button_myth" onClick={fetchQuestionsForCategory2}>Mythology</button>
+      <button className="button_anime" onClick={fetchQuestionsForCategory3}>Anime & Manga</button>
+      <button className="button_poly" onClick={fetchQuestionsForCategory4}>Politics</button>
     
-      <button className="button"  onClick={fetchQuestionsForCategory1}>General Knowledge</button>
-      <button className="button" onClick={fetchQuestionsForCategory2}>Mythology</button>
-      <button className="button" onClick={fetchQuestionsForCategory3}>Anime & Manga</button>
-      <button className="button" onClick={fetchQuestionsForCategory4}>Politics</button>
 
       {/* Render the questions */}
       {questions.map((question, index) => (
@@ -180,7 +182,7 @@ const Play = () => {
         </div>
       ))}
       {/* to check the total number of correct ans user get */}
-      <button onClick={clicked}>Check Score</button>
+      <button className="check_score" onClick={clicked}>Check Score</button>
       {/* alert(`You answered &{correctcount} question correctly`); */}
        
     </div>

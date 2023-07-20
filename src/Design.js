@@ -1,6 +1,7 @@
 import { useCallback } from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
+// import Particles from "react-tsparticles/dist/react-tsparticles.esm";
 
 const Design = () => {
   const particlesInit = useCallback(async (engine) => {
@@ -13,20 +14,20 @@ const Design = () => {
   }, []);
   <h1>hrllo</h1>
   return (
-    <div className="w-full h-full">
+    <div className="particles-container" style={{ padding: "200px" }}>
       <Particles
         className="w-full h-screen"
         id="tsparticles"
         init={particlesInit}
         loaded={particlesLoaded}
         options={{
-          fullScreen: false,
+          fullScreen:true,
           background: {
             color: {
               value: "rgb(17 24 39)",
             },
           },
-          fpsLimit: 100,
+          fpsLimit: 60,
           interactivity: {
             events: {
               onClick: {
@@ -43,7 +44,7 @@ const Design = () => {
             },
             modes: {
               push: {
-                quantity: 4,
+                quantity: 0,
               },
               repulse: {
                 distance: 150,
@@ -59,7 +60,7 @@ const Design = () => {
               color: "#ffffff",
               distance: 120,
               enable: true,
-              opacity: 0.6,
+              opacity: 0.3,
               width: 1,
             },
             collisions: {
@@ -72,7 +73,7 @@ const Design = () => {
                 default: "bounce",
               },
               random: false,
-              speed: 2.5,
+              speed: 2,
               straight: false,
             },
             number: {
