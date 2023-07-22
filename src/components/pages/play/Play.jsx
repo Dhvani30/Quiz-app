@@ -17,7 +17,9 @@ const Play = () => {
         isCorrect:false,
         selectedAnswer: null
       }));
+      <div className="question_bg">
     setQuestions(results);
+      </div>
     } catch (error) {
       console.error(error);
     }
@@ -123,7 +125,8 @@ const Play = () => {
   
   return (
     <div className="play">
-     
+      <div className="container">
+         
 
       <button className="button_gk"  onClick={fetchQuestionsForCategory1}>General Knowledge</button>
       <button className="button_myth" onClick={fetchQuestionsForCategory2}>Mythology</button>
@@ -132,10 +135,11 @@ const Play = () => {
     
 
       {/* Render the questions */}
+      <div className="questions">
       {questions.map((question, index) => (
         <div key={index}>
-          <h3>{question.question}</h3>
-          <ul>
+          <h3 className="question-text">{question.question}</h3>
+          <ul className="answer-options">
             {question.incorrect_answers.map((answer, i) => (
               <li 
               key={i}
@@ -157,11 +161,13 @@ const Play = () => {
               </li>
             ))}
             <li
-            className={
-              question.selectedAnswer === question.correct_answer
-              ? "selected-option correct-option"
-              : ""
-            }            
+            className={`answer-option ${
+                    question.selectedAnswer === question.correct_answer
+                      ? question.isCorrect
+                        ? "correct"
+                        : "incorrect"
+                      : ""
+                  }`}         
             >
               <input
                 type="radio" 
@@ -172,20 +178,23 @@ const Play = () => {
               {question.correct_answer}
             </li>
           </ul>
+          <div className="check_ans">
             {question.selectedAnswer === question.correct_answer && (
-              <p style={{ color: "green" }}>Correct answer!</p>
+              <p style={{ color: "#00FF00" }}>Correct answer!</p>
               )}
               {question.selectedAnswer && !question.isCorrect &&  (
                 <p style={{ color: "red" }}>Incorrect answer!</p>
               )}
+            </div>
               {/* <button onClick={checkAns}>Submit</button> */}
         </div>
       ))}
       {/* to check the total number of correct ans user get */}
       <button className="check_score" onClick={clicked}>Check Score</button>
       {/* alert(`You answered &{correctcount} question correctly`); */}
-       
+      </div>
     </div>
+  </div>
   );
 };
 

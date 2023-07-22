@@ -6,7 +6,17 @@
 
 @layer components {
   .bar-icon {
-    @apply relative flex items-center justify-center h-12 w-12 mt-2 mb-2 mx-auto bg-gray-400 hover:bg-fuchsia-500 bg-indigo-400 text-white hover:text-white hover:rounded-xl rounded-3xl transition-all duration-200 ease-linear cursor-pointer shadow-lg;
+    @apply relative flex 
+    items-center justify-center 
+    h-12 w-12 mt-2 mb-2 mx-auto 
+    hover:bg-fuchsia-500 
+    bg-indigo-400 
+    text-white 
+    hover:text-white 
+    hover:rounded-xl rounded-3xl 
+    transition-all 
+    duration-200 
+    ease-linear;
   }
 
   .bar-icon:hover .sidebar-tooltip {
@@ -14,7 +24,15 @@
   }
 
   .sidebar-tooltip {
-    @apply absolute w-auto p-2 m-2 min-w-max left-14 rounded-md shadow-md text-white text-xs font-bold transition-all duration-100 scale-0 origin-left;
+    @apply absolute 
+    w-auto p-2 m-2 min-w-max left-14 
+    rounded-md shadow-md 
+    text-white text-xs 
+    font-bold 
+    transition-all 
+    duration-100 
+    scale-0 
+    origin-left;
   }
 }
 
@@ -26,95 +44,145 @@ body {
 
 /* Styles for the home page */
 .home {
-.title {
-  text-align: center;
-  font-size: 2rem;
-  font-weight: 300;
+  .title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 300;
+  }
+
+  .logo {
+    width: 250px;
+    display: grid;
+    place-items: center;
+    margin: auto;
+
+    padding-left: 10px;
+  }
+
+  .input {
+    background-color: rgba(255, 255, 255, 0.17);
+    /* background-color: rgba(0, 0, 0, 0.3); */
+    border: none;
+    color: white;
+    padding: 0.5rem;
+    display: block;
+    width: 100%;
+    margin-top: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    align-content: center;
+    width: 300px;
+  }
+
+  .input::placeholder {
+    color: #9c9c9c;
+  }
+
+  .sign-in-button {
+    background-color: rgba(255, 255, 255, 0.17);
+    /* background-color: rgba(0, 0, 0, 0.3); */
+    border-radius: 5px;
+    align-content: center;
+    display: flex;
+    padding: 0.5rem;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70px;
+    /* transition: background-color 0.3s ease-in-out; */
+  }
 }
 
-.logo {
-  width: 220px;
-  /* height: 100px; */
-  /* border: solid white 2px; */
-  /* border-radius: 50%; */
-  display: grid;
-  place-items: center;
-  /* margin-top: 00px; */
-  margin-left: 250px;
-  /* font-size: 3rem; */
-}
+.play {
+  .button_gk,
+  .button_myth,
+  .button_anime,
+  .button_poly,
+  .check_score {
+    background-color: rgba(255, 255, 255, 0.17);
+    /* background-color: rgba(0, 0, 0, 0.3); */
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    display: block;
+    width: 100%;
+    margin-top: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    align-content: center;
+    width: 300px;
+    transition: background-color 0.3s ease-in-out;
+  }
 
-.input {
-  background-color: rgba(255, 255, 255, 0.2);
-  border: none;
-  color: white;
-  padding: 0.5rem;
-  display: block;
-  width: 100%;
-  margin-top: 5rem;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 5px;
-  align-content: center;
-  width: 300px;
-}
+  .button_gk:hover {
+    background: linear-gradient(45deg, #7700FF, #00FFFF); 
+  }
 
-.input::placeholder {
-  color: #9c9c9c;
-}
+  .button_myth:hover {
+    background: linear-gradient(45deg, #FF8C00, #FF00FF);
+  }
 
-.sign-in-button {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 5px;
-  align-content: center;
-  display: flex;
-  padding: 0.5rem;
+  .button_anime:hover {
+    background: linear-gradient(45deg, #00FFFF, #FF1493);
+  }
+
+  .button_poly:hover {
+    background: linear-gradient(45deg, #0000FF, #FF0000);
+  }
+  .container {
+    height: 100vh; 
+    overflow-y: scroll; 
+  }
+
+  .check_score:hover{
+    background: linear-gradient(45deg, #f06292, #9575cd);
+
+  }
+ .questions {
   margin-top: 2rem;
-  margin-left: auto;
-  margin-right: auto;
-  width: 70px;
-}
 }
 
+.container {
+  padding: 5rem;
+  margin-bottom: 1rem;
+  /* background-color: #9575cd; */
+}
 
-.play{
 
-  
-.button_gk,.button_myth, .button_anime, .button_poly, .check_score {
-  background-color: rgba(255, 255, 255, 0.2);
-  border: none;
-  color: white;
-  padding: 0.5rem 1rem;
-  display: block;
-  width: 100%;
-  margin-top: 5rem;
-  margin-left: auto;
-  margin-right: auto;
+.question-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffffff;
+  /* background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px; */
+  margin: 2rem;
+}
+
+.answer-options {
+  background-color: rgba(255, 255, 255, 0.17);
+  /* background-color: rgba(0, 0, 0, 0.3); */
   border-radius: 5px;
-  align-content: center;
-  width: 300px;
-  /* Add the following lines for the hover effect */
-  transition: background-color 0.3s ease-in-out; /* Add a smooth transition */
+  padding: 2rem;
+  font-weight: bold;
+  margin-top: 1rem;
 }
 
-.button_gk:hover {
-  background: linear-gradient(45deg, #7700FF, #00FFFF); /* Change this to the desired hover color */
+.check_ans{
+  font-weight: bold;
+  padding: 2rem;
+
 }
-.button_myth:hover {
-  background: linear-gradient(45deg, #FF8C00, #FF00FF);
-}
-.button_anime:hover {
-  background: linear-gradient(45deg, #00FFFF, #FF1493);
-}
-.button_poly:hover {
-  background: linear-gradient(45deg, #0000FF, #FF0000);
+
+.settings{
+  .dark{
+    background-color: #222;
+  color: #fff;
+  padding: 10rem;
+  }
+
 }
 
 }
-#particles-js {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  padding-left: 100px;
-}
+
