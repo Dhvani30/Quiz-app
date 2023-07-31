@@ -1,9 +1,24 @@
 import React, { useState } from "react";
-import "./play.css"
+import { useEffect } from "react";
+// import "../score/Score"
+import Score from "../score/Score";
 
 const Play = () => {
   const [questions, setQuestions] = useState([]);
   const [correctcount ,setCount]=useState(0);
+  const [correctCountGK, setCorrectCountGK] = useState(
+    (JSON.parse(localStorage.getItem("correctScores")) || {}).correctCountGK || 0
+  );
+  const [correctCountMythology, setCorrectCountMythology] = useState(
+    (JSON.parse(localStorage.getItem("correctScores")) || {}).correctCountMythology || 0
+  );
+  const [correctCountAnime, setCorrectCountAnime] = useState(
+    (JSON.parse(localStorage.getItem("correctScores")) || {}).correctCountAnime || 0
+  );
+  const [correctCountPolitics, setCorrectCountPolitics] = useState(
+    (JSON.parse(localStorage.getItem("correctScores")) || {}).correctCountPolitics || 0
+  );
+
 
   const fetchQuestionsForCategory1 = async () => {
     try {
@@ -20,7 +35,9 @@ const Play = () => {
       <div className="question_bg">
     setQuestions(results);
       </div>
-    } catch (error) {
+    } 
+    catch (error) 
+    {
       console.error(error);
     }
   };
@@ -108,21 +125,71 @@ const Play = () => {
   //   )
   // };
   const clicked=()=>{
-    let count=0;
-    for(let i=0;i<questions.length;i++)
-    {
-      if(questions[i].isCorrect)
-      {
-        count++
-      }
-    }
-    setCount(count)
-    window.alert(`You answered ${count} question correctly`);
+    const unansweredQuestion = questions.find(
+      (question) => question.selectedAnswer === null
+    );
+    if (unansweredQuestion) {
+      window.alert("Please answer all the questions.");
+    } else {
+      let countGK = 0;
+      let countMythology = 0;
+      let countAnime = 0;
+      let countPolitics = 0;
 
-    // page refresh
-    window.location.reload();
-  }
+    for (let i = 0; i < questions.length; i++) {
+        if (questions[i].isCorrect) {
+          if (questions[i].category === "General Knowledge") {
+            countGK++;
+          } else if (questions[i].category === "Mythology") {
+            countMythology++;
+          } else if (questions[i].category === "Entertainment: Anime & Manga") {
+            countAnime++;
+          } else if (questions[i].category === "Politics") {
+            countPolitics++;
+          }
+        }
+      }
+
+      setCorrectCountGK(countGK);
+      setCorrectCountMythology(countMythology);
+      setCorrectCountAnime(countAnime);
+      setCorrectCountPolitics(countPolitics);
+
+      const correctScores = {
+        correctCountGK,
+        correctCountMythology,
+        correctCountAnime,
+        correctCountPolitics,
+      };
+
+      localStorage.setItem("correctScores", JSON.stringify(correctScores));
   
+      window.alert(`
+        Your score for General Knowledge is: ${countGK}
+        Your score for Mythology is: ${countMythology}
+        Your score for Anime & Manga is: ${countAnime}
+        Your score for Politics is: ${countPolitics}
+      `);
+  
+      // Page refresh
+      window.location.reload();
+
+    // setCount(count)
+    // window.alert(`You answered ${count} question correctly`);
+
+    // // page refresh
+    // window.location.reload();
+  }
+};
+  useEffect(() => {
+    localStorage.setItem("correctScores", JSON.stringify({
+      correctCountGK,
+      correctCountMythology,
+      correctCountAnime,
+      correctCountPolitics,
+    }));
+  }, [correctCountGK, correctCountMythology, correctCountAnime, correctCountPolitics]);
+
   return (
     <div className="play">
       <div className="container">
@@ -161,13 +228,11 @@ const Play = () => {
               </li>
             ))}
             <li
-            className={`answer-option ${
-                    question.selectedAnswer === question.correct_answer
-                      ? question.isCorrect
-                        ? "correct"
-                        : "incorrect"
-                      : ""
-                  }`}         
+            className={
+              question.selectedAnswer === question.correct_answer
+              ? "selected-option correct-option"
+              : ""
+            }      
             >
               <input
                 type="radio" 
@@ -192,6 +257,12 @@ const Play = () => {
       {/* to check the total number of correct ans user get */}
       <button className="check_score" onClick={clicked}>Check Score</button>
       {/* alert(`You answered &{correctcount} question correctly`); */}
+      <Score correctScores={{  // Correct placement of the Chart component.
+        gk: correctCountGK,
+        mythology: correctCountMythology,
+        anime_manga: correctCountAnime,
+        politics: correctCountPolitics,
+      }} />
       </div>
     </div>
   </div>

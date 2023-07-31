@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { VscHome, VscPlay, VscSettingsGear, VscMenu, VscGraphLine } from "react-icons/vsc";
+import { AiFillHome, AiFillPlayCircle, AiFillSetting, AiOutlineMenu,AiFillStar} from "react-icons/ai";
 import { NavLink } from "react-router-dom";
 
 const Side = ({ children }) => {
@@ -9,34 +9,34 @@ const Side = ({ children }) => {
     const menuItem = [
         // {
         //     path: "/",
-        //     name: "sidebar",
-        //     icon: <VscAccount size={23} />,
+        //     name: "",
+        //     icon: < size={23} />,
         // },
         {
             path: "/home",
             name: "Home",
-            icon: <VscHome size={23} />,
+            icon: <AiFillHome size={23} />,
         },
         {
             path: "/play",
             name: "Play",
-            icon: <VscPlay size={23} />,
+            icon: <AiFillPlayCircle size={23} />,
         },
         {
             path: "/score",
             name: "Score",
-            icon: <VscGraphLine size={23} />,
+            icon: <AiFillStar size={23} />,
         },
         {
             path: "/settings",
             name: "Settings",
-            icon: <VscSettingsGear size={23} />,
+            icon: <AiFillSetting size={23} />,
         },
     ];
 
     return (
         <div className={`fixed top-0 left-0 h-screen ${isOpen ? "w-36" : "w-16"} 
-              flex flex-col bg-gray 900 text-white shadow-lg bg-primary text-secondary 
+              flex flex-col bg-gray 900 text-white shadow-lg  bg-slate-950
               transition-width duration-300`}
         >
             <div className="container">
@@ -44,13 +44,13 @@ const Side = ({ children }) => {
                     <div className="top_section">
                         <div className="icons-container w-16">
                             <div className="bar-icon group mt-4" onClick={toggle}>
-                                <VscMenu className="icon w-16" />
+                                <AiOutlineMenu className="icon w-16" />
                                 <span className="sidebar-tooltip group-hover:opacity-100">Menu</span>
                             </div>
                             {menuItem.map((item, index) => (
                                 <NavLink to={item.path} key={index} className="link" activeClassName="active">
                                     <div className="bar-icon group mt-4">
-                                        {item.icon}
+                                    <div className="icon-wrapper">{item.icon}</div>
                                         <span className="sidebar-tooltip group-hover:opacity-100">{item.name}</span>
                                     </div>
                                 </NavLink>
